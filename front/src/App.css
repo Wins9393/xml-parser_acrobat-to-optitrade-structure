@@ -40,5 +40,6 @@
 
 .doc-upload {
 	width: 100%;
+	flex: 0 1 400px;
 	margin-top: 32px;
 }
