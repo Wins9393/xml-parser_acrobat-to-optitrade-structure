@@ -102,6 +102,7 @@ function App() {
             value={inputFileNumber}
             maxLength={5}
             onChange={handleInputFileName}
+            style={{ marginBottom: "8px" }}
           />
           <Select
             placeholder="Test / Production"
