@@ -7,13 +7,15 @@ import jstoxml from "jstoxml";
 import xml2js from "xml2js";
 
 let tabClientsNumber = [
-  { "BRIL 62 BAARN": 6110 },
-  { "MAYK VAN BEEK OPTIEK": 1588 },
+  { "REMCO OPTIEK": 1305 },
+  { "THIJSSEN OPTIEK VOF": 6820 },
+  { "DOESBURG OPTIEK": 1357 },
+  { "EYECARE BRILSERVICE BV": 1599 },
+  { "OVERMARS OPTICIENS": 6675 },
+  { "VALENTIJN OPTICIENS B.V": 7568 },
   { OOGDALEM: 1419 },
   { "OOGMERK TUNDERMAN": 1073 },
-  { "OPTIEK FREIBERGER": 1193 },
   { "'T BRILLENHUYS": 6115 },
-  { "VAN KOUWEN UW OPTICIEN": 2448 },
   { "VON OY": 6650 },
   { "PETER KUIPER OPTIEK ": 7548 },
 ];
