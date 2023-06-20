@@ -305,8 +305,8 @@ const processData = async (req, res) => {
     for await (const part of parts) {
       if (part.fieldname === "files") {
         fields = {
-          inputFileNumber: part.fields.inputFileNumber.value,
-          testProduction: part.fields.testProduction.value,
+          inputFileNumber: part?.fields?.inputFileNumber?.value,
+          testProduction: part?.fields?.testProduction?.value,
         };
 
         const fileContent = await part.toBuffer();
