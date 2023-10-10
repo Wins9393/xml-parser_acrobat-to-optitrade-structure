@@ -124,16 +124,6 @@
       <invoice_number>16483</invoice_number>
       <invoice_date>2022-08-22</invoice_date>
       <invoicelines>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART0913</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>144</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
           <invoiceline_articlecode_org>ART2509</invoiceline_articlecode_org>
           <invoiceline_amount_ex_VAT>152</invoiceline_amount_ex_VAT>
           <invoiceline_VAT>
