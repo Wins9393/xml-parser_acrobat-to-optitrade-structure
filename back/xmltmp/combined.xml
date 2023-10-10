@@ -2,7 +2,7 @@
   <statement_information>
     <statement_filename>2023_1185900001.xml</statement_filename>
     <statement_number>1185900001</statement_number>
-    <statement_creationdatetime>2023-06-12T11:31:00.593Z</statement_creationdatetime>
+    <statement_creationdatetime>2023-06-20T10:55:10.917Z</statement_creationdatetime>
     <statement_test_production>T</statement_test_production>
     <statement_year>2023</statement_year>
     <statement_month>05</statement_month>
@@ -17,19 +17,46 @@
   </supplier>
   <invoices>
     <invoice>
-      <invoice_debtor>2448</invoice_debtor>
-      <invoice_amount_ex_VAT>144</invoice_amount_ex_VAT>
+      <invoice_debtor>6115</invoice_debtor>
+      <invoice_amount_ex_VAT>1229</invoice_amount_ex_VAT>
       <invoice_VAT_amounts>
         <invoice_VAT>
           <invoice_VAT_percentage>0</invoice_VAT_percentage>
           <invoice_VAT_amount>0</invoice_VAT_amount>
         </invoice_VAT>
       </invoice_VAT_amounts>
-      <invoice_number>21037</invoice_number>
-      <invoice_date>2023-02-16</invoice_date>
+      <invoice_number>20754</invoice_number>
+      <invoice_date>2023-02-08</invoice_date>
       <invoicelines>
         <invoiceline>
-          <invoiceline_articlecode_org>ART0950</invoiceline_articlecode_org>
+          <invoiceline_articlecode_org>ART3138</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>149</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART3277</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>68</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART3280</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>69</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2986</invoiceline_articlecode_org>
           <invoiceline_amount_ex_VAT>144</invoiceline_amount_ex_VAT>
           <invoiceline_VAT>
             <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
@@ -38,31 +65,8 @@
           <invoiceline_quantity>1</invoiceline_quantity>
         </invoiceline>
         <invoiceline>
-          <invoiceline_articlecode_org>900</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>0</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-      </invoicelines>
-    </invoice>
-    <invoice>
-      <invoice_debtor>6115</invoice_debtor>
-      <invoice_amount_ex_VAT>165</invoice_amount_ex_VAT>
-      <invoice_VAT_amounts>
-        <invoice_VAT>
-          <invoice_VAT_percentage>0</invoice_VAT_percentage>
-          <invoice_VAT_amount>0</invoice_VAT_amount>
-        </invoice_VAT>
-      </invoice_VAT_amounts>
-      <invoice_number>20803</invoice_number>
-      <invoice_date>2023-02-10</invoice_date>
-      <invoicelines>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART3242</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>165</invoiceline_amount_ex_VAT>
+          <invoiceline_articlecode_org>ART2819</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>66</invoiceline_amount_ex_VAT>
           <invoiceline_VAT>
             <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
             <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
@@ -133,70 +137,7 @@
           <invoiceline_quantity>1</invoiceline_quantity>
         </invoiceline>
         <invoiceline>
-          <invoiceline_articlecode_org>ART2972</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>132</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART2775</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>152</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART1791</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>170</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART2254</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>134</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART2605</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>162</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART2285</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>114</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART1709</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>132</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART3039</invoiceline_articlecode_org>
+          <invoiceline_articlecode_org>ART3040</invoiceline_articlecode_org>
           <invoiceline_amount_ex_VAT>138</invoiceline_amount_ex_VAT>
           <invoiceline_VAT>
             <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
@@ -205,8 +146,8 @@
           <invoiceline_quantity>1</invoiceline_quantity>
         </invoiceline>
         <invoiceline>
-          <invoiceline_articlecode_org>ART2991</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>142</invoiceline_amount_ex_VAT>
+          <invoiceline_articlecode_org>ART2724</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>132</invoiceline_amount_ex_VAT>
           <invoiceline_VAT>
             <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
             <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
@@ -214,7 +155,16 @@
           <invoiceline_quantity>1</invoiceline_quantity>
         </invoiceline>
         <invoiceline>
-          <invoiceline_articlecode_org>ART2581</invoiceline_articlecode_org>
+          <invoiceline_articlecode_org>ART3192</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>68</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2450</invoiceline_articlecode_org>
           <invoiceline_amount_ex_VAT>152</invoiceline_amount_ex_VAT>
           <invoiceline_VAT>
             <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
@@ -223,44 +173,8 @@
           <invoiceline_quantity>1</invoiceline_quantity>
         </invoiceline>
         <invoiceline>
-          <invoiceline_articlecode_org>ART2305</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>114</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART2873</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>142</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART3017</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>155</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
-          <invoiceline_articlecode_org>ART0920</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>114</invoiceline_amount_ex_VAT>
-          <invoiceline_VAT>
-            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
-            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
-          </invoiceline_VAT>
-          <invoiceline_quantity>1</invoiceline_quantity>
-        </invoiceline>
-        <invoiceline>
           <invoiceline_articlecode_org>900</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>23.5</invoiceline_amount_ex_VAT>
+          <invoiceline_amount_ex_VAT>33</invoiceline_amount_ex_VAT>
           <invoiceline_VAT>
             <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
             <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
@@ -271,19 +185,19 @@
     </invoice>
     <invoice>
       <invoice_debtor>6115</invoice_debtor>
-      <invoice_amount_ex_VAT>268</invoice_amount_ex_VAT>
+      <invoice_amount_ex_VAT>1229</invoice_amount_ex_VAT>
       <invoice_VAT_amounts>
         <invoice_VAT>
           <invoice_VAT_percentage>0</invoice_VAT_percentage>
           <invoice_VAT_amount>0</invoice_VAT_amount>
         </invoice_VAT>
       </invoice_VAT_amounts>
-      <invoice_number>21696</invoice_number>
-      <invoice_date>2023-03-06</invoice_date>
+      <invoice_number>20754</invoice_number>
+      <invoice_date>2023-02-08</invoice_date>
       <invoicelines>
         <invoiceline>
-          <invoiceline_articlecode_org>ART2459</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>134</invoiceline_amount_ex_VAT>
+          <invoiceline_articlecode_org>ART3138</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>149</invoiceline_amount_ex_VAT>
           <invoiceline_VAT>
             <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
             <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
@@ -291,8 +205,253 @@
           <invoiceline_quantity>1</invoiceline_quantity>
         </invoiceline>
         <invoiceline>
-          <invoiceline_articlecode_org>ART2260</invoiceline_articlecode_org>
-          <invoiceline_amount_ex_VAT>134</invoiceline_amount_ex_VAT>
+          <invoiceline_articlecode_org>ART3277</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>68</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART3280</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>69</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2986</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>144</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2819</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>66</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2269</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>144</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART3129</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>66</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART3040</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>138</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2724</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>132</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART3192</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>68</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2450</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>152</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>900</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>33</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+      </invoicelines>
+    </invoice>
+    <invoice>
+      <invoice_debtor>1599</invoice_debtor>
+      <invoice_amount_ex_VAT>-573.3</invoice_amount_ex_VAT>
+      <invoice_VAT_amounts>
+        <invoice_VAT>
+          <invoice_VAT_percentage>0</invoice_VAT_percentage>
+          <invoice_VAT_amount>0</invoice_VAT_amount>
+        </invoice_VAT>
+      </invoice_VAT_amounts>
+      <invoice_number>AV5579</invoice_number>
+      <invoice_date>2022-03-08</invoice_date>
+      <invoicelines>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2804</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>-154.8</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2830</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>-154.8</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2831</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>-143.1</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2926</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>-120.6</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>900</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>0</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+      </invoicelines>
+    </invoice>
+    <invoice>
+      <invoice_debtor>1599</invoice_debtor>
+      <invoice_amount_ex_VAT>-143.1</invoice_amount_ex_VAT>
+      <invoice_VAT_amounts>
+        <invoice_VAT>
+          <invoice_VAT_percentage>0</invoice_VAT_percentage>
+          <invoice_VAT_amount>0</invoice_VAT_amount>
+        </invoice_VAT>
+      </invoice_VAT_amounts>
+      <invoice_number>AV5578</invoice_number>
+      <invoice_date>2021-10-14</invoice_date>
+      <invoicelines>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2747</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>-143.1</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>900</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>0</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+      </invoicelines>
+    </invoice>
+    <invoice>
+      <invoice_debtor>1599</invoice_debtor>
+      <invoice_amount_ex_VAT>294</invoice_amount_ex_VAT>
+      <invoice_VAT_amounts>
+        <invoice_VAT>
+          <invoice_VAT_percentage>0</invoice_VAT_percentage>
+          <invoice_VAT_amount>0</invoice_VAT_amount>
+        </invoice_VAT>
+      </invoice_VAT_amounts>
+      <invoice_number>FC8075</invoice_number>
+      <invoice_date>2023-05-26</invoice_date>
+      <invoicelines>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART3062</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>142</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART2582</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>152</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+        <invoiceline>
+          <invoiceline_articlecode_org>900</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>0</invoiceline_amount_ex_VAT>
+          <invoiceline_VAT>
+            <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
+            <invoiceline_VAT_amount>0</invoiceline_VAT_amount>
+          </invoiceline_VAT>
+          <invoiceline_quantity>1</invoiceline_quantity>
+        </invoiceline>
+      </invoicelines>
+    </invoice>
+    <invoice>
+      <invoice_debtor>1599</invoice_debtor>
+      <invoice_amount_ex_VAT>146</invoice_amount_ex_VAT>
+      <invoice_VAT_amounts>
+        <invoice_VAT>
+          <invoice_VAT_percentage>0</invoice_VAT_percentage>
+          <invoice_VAT_amount>0</invoice_VAT_amount>
+        </invoice_VAT>
+      </invoice_VAT_amounts>
+      <invoice_number>21731</invoice_number>
+      <invoice_date>2023-03-06</invoice_date>
+      <invoicelines>
+        <invoiceline>
+          <invoiceline_articlecode_org>ART1860</invoiceline_articlecode_org>
+          <invoiceline_amount_ex_VAT>146</invoiceline_amount_ex_VAT>
           <invoiceline_VAT>
             <invoiceline_VAT_percentage>0</invoiceline_VAT_percentage>
             <invoiceline_VAT_amount>0</invoiceline_VAT_amount>

@@ -7,13 +7,15 @@ import jstoxml from "jstoxml";
 import xml2js from "xml2js";
 
 let tabClientsNumber = [
-  { "BRIL 62 BAARN": 6110 },
-  { "MAYK VAN BEEK OPTIEK": 1588 },
+  { "REMCO OPTIEK": 1305 },
+  { "THIJSSEN OPTIEK VOF": 6820 },
+  { "DOESBURG OPTIEK": 1357 },
+  { "EYECARE BRILSERVICE BV": 1599 },
+  { "OVERMARS OPTICIENS": 6675 },
+  { "VALENTIJN OPTICIENS B.V": 7568 },
   { OOGDALEM: 1419 },
   { "OOGMERK TUNDERMAN": 1073 },
-  { "OPTIEK FREIBERGER": 1193 },
   { "'T BRILLENHUYS": 6115 },
-  { "VAN KOUWEN UW OPTICIEN": 2448 },
   { "VON OY": 6650 },
   { "PETER KUIPER OPTIEK ": 7548 },
 ];
@@ -84,20 +86,31 @@ const formatJson = async (json) => {
   let invoiceLines;
   let chargeTotalAmount;
   let invoiceLineChargeAmount;
+  // let invoiceLineDiscountPercentage;
   let invoicesTab = [];
 
   const createInvoiceLine = (invoiceLines) => {
     let tabInvoiceLines = [];
 
     invoiceLines.map((line) => {
+      let invoicelineAmount =
+        line?.["ram:SpecifiedLineTradeAgreement"][0][
+          "ram:NetPriceProductTradePrice"
+        ][0]["ram:ChargeAmount"][0];
+
       tabInvoiceLines.push({
         invoiceline: {
           invoiceline_articlecode_org:
             line?.["ram:SpecifiedTradeProduct"][0]["ram:SellerAssignedID"][0],
-          invoiceline_amount_ex_VAT:
-            line?.["ram:SpecifiedLineTradeAgreement"][0][
-              "ram:GrossPriceProductTradePrice"
-            ][0]["ram:ChargeAmount"][0],
+          invoiceline_amount_ex_VAT: `${
+            invoiceNumber && invoiceNumber.slice(0, 2) === "AV"
+              ? `-${invoicelineAmount}`
+              : invoicelineAmount
+          }`,
+          // invoiceline_discount_percentage:
+          //   line?.["ram:SpecifiedLineTradeSettlement"][0][
+          //     "ram:SpecifiedTradeAllowanceCharge"
+          //   ][0]["ram:CalculationPercent"][0] || 0,
           invoiceline_VAT: {
             invoiceline_VAT_percentage: 0,
             invoiceline_VAT_amount: 0,
@@ -117,7 +130,11 @@ const formatJson = async (json) => {
     let invoice = {
       invoice: {
         invoice_debtor: `${debtorNumber}`,
-        invoice_amount_ex_VAT: `${invoiceAmountHT}`,
+        invoice_amount_ex_VAT: `${
+          invoiceNumber && invoiceNumber.slice(0, 2) === "AV"
+            ? `-${invoiceAmountHT}`
+            : invoiceAmountHT
+        }`,
         invoice_VAT_amounts: {
           invoice_VAT: {
             invoice_VAT_percentage: 0,
@@ -261,6 +278,7 @@ const formatJson = async (json) => {
 const writeFormatXml = async (data) => {
   try {
     const jsonFormated = await formatJson(data);
+
     const xmlFormated = toXML(jsonFormated.content, xmlConfig);
 
     const filePath = "./xmltmp/combined.xml";
@@ -287,8 +305,8 @@ const processData = async (req, res) => {
     for await (const part of parts) {
       if (part.fieldname === "files") {
         fields = {
-          inputFileNumber: part.fields.inputFileNumber.value,
-          testProduction: part.fields.testProduction.value,
+          inputFileNumber: part?.fields?.inputFileNumber?.value,
+          testProduction: part?.fields?.testProduction?.value,
         };
 
         const fileContent = await part.toBuffer();
@@ -301,6 +319,10 @@ const processData = async (req, res) => {
         jsonFiles.push(stringifiedData);
       }
     }
+
+    /** Pour debug */
+    // fs.promises.writeFile("./jsons/test.json", jsonFiles);
+    /** Pour debug */
 
     jsonFiles.push(JSON.stringify(fields));
 
@@ -329,4 +351,5 @@ const start = async (PORT) => {
     process.exit(1);
   }
 };
+
 start(PORT);
