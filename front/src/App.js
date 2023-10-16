@@ -6,10 +6,11 @@ import "./App.css";
 const { Dragger } = Upload;
 
 function App() {
+  const [xmlStructure, setXmlStructure] = useState("Optitrade");
   const [inputFileNumber, setInputFileNumber] = useState(null);
   const [testProduction, setTestProduction] = useState(null);
   const [disableUpload, setDisableUpload] = useState(true);
-  const [lastFileResponse, setLastFileResponse] = useState(null);
+  // const [lastFileResponse, setLastFileResponse] = useState(null);
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
@@ -20,11 +21,11 @@ function App() {
     }
   }, [inputFileNumber, testProduction]);
 
-  useEffect(() => {
-    if (lastFileResponse) {
-      handleDownload(lastFileResponse);
-    }
-  }, [lastFileResponse]);
+  // useEffect(() => {
+  //   if (lastFileResponse) {
+  //     handleDownload(lastFileResponse);
+  //   }
+  // }, [lastFileResponse]);
 
   const props = {
     name: "file",
@@ -39,32 +40,12 @@ function App() {
         currentFiles.filter((f) => f.uid !== file.uid)
       );
     },
-    // customRequest: async (options) => {
-    //   const data = new FormData();
-    //   data.append("file", options.file);
-    //   data.append("inputFileNumber", inputFileNumber);
-    //   data.append("testProduction", testProduction);
-
-    //   console.log("data", data);
-
-    //   const response = await fetch("http://localhost:5555/api/structure-xml", {
-    //     method: "POST",
-    //     body: data,
-    //   });
-
-    //   if (response.ok) {
-    //     setLastFileResponse(response);
-    //     options.onSuccess("Ok");
-    //   } else {
-    //     options.onError("Error");
-    //   }
-    // },
     onDrop(e) {
       console.log("Dropped files", e.dataTransfer.files);
     },
   };
 
-  const handleUpload = async () => {
+  const handleUploadOptitrade = async () => {
     const data = new FormData();
 
     files.forEach((file) => {
@@ -73,10 +54,37 @@ function App() {
     data.append("inputFileNumber", inputFileNumber);
     data.append("testProduction", testProduction);
 
-    const response = await fetch("http://localhost:5555/api/structure-xml", {
-      method: "POST",
-      body: data,
+    const response = await fetch(
+      "http://localhost:5555/api/structure-optitrade-xml",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    if (response.ok) {
+      handleDownload(response);
+    } else {
+      message.error(`File upload failed.`);
+    }
+  };
+
+  const handleUploadCentrop = async () => {
+    const data = new FormData();
+
+    files.forEach((file) => {
+      data.append("files", file);
     });
+    data.append("inputFileNumber", inputFileNumber);
+    data.append("testProduction", testProduction);
+
+    const response = await fetch(
+      "http://localhost:5555/api/structure-centrop-xml",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
 
     if (response.ok) {
       handleDownload(response);
@@ -137,8 +145,17 @@ function App() {
 
   return (
     <div className="app">
-      <header className="app-header">
-        <div className="header-title">XML for Optitrade</div>
+      <header className={`app-header ${xmlStructure}`}>
+        <div className="header-title">{`XML for ${xmlStructure}`}</div>
+        <Select
+          options={[
+            { value: "Optitrade", label: "Optitrade" },
+            { value: "Centrop", label: "Centrop" },
+          ]}
+          style={{ width: "200px" }}
+          defaultValue={"Optitrade"}
+          onChange={(value) => setXmlStructure(value)}
+        ></Select>
       </header>
       <section className="main">
         <div className="doc-infos">
@@ -171,7 +188,15 @@ function App() {
               Support for a single or bulk upload.
             </p>
           </Dragger>
-          <Button onClick={handleUpload}>Upload files</Button>
+          <Button
+            onClick={
+              xmlStructure === "Optitrade"
+                ? handleUploadOptitrade
+                : handleUploadCentrop
+            }
+          >
+            Upload files
+          </Button>
         </div>
       </section>
     </div>
