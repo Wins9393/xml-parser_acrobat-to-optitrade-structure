@@ -319,7 +319,7 @@ const processOptitradeData = async (req, res) => {
     }
 
     /** Pour debug */
-    fs.promises.writeFile("./jsons/test.json", jsonFiles);
+    // fs.promises.writeFile("./jsons/test.json", jsonFiles);
     /** Pour debug */
 
     jsonFiles.push(JSON.stringify(fields));
