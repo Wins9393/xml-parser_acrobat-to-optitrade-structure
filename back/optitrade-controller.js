@@ -102,10 +102,14 @@ const formatJson = async (json) => {
             invoiceline_VAT_percentage: 0,
             invoiceline_VAT_amount: 0,
           },
+          // invoiceline_quantity:
+          //   line?.["ram:SpecifiedLineTradeAgreement"][0][
+          //     "ram:NetPriceProductTradePrice"
+          //   ][0]["ram:BasisQuantity"][0],
           invoiceline_quantity:
-            line?.["ram:SpecifiedLineTradeAgreement"][0][
-              "ram:NetPriceProductTradePrice"
-            ][0]["ram:BasisQuantity"][0],
+            line?.["ram:SpecifiedLineTradeDelivery"][0][
+              "ram:BilledQuantity"
+            ][0],
         },
       });
     });
@@ -315,7 +319,7 @@ const processOptitradeData = async (req, res) => {
     }
 
     /** Pour debug */
-    // fs.promises.writeFile("./jsons/test.json", jsonFiles);
+    fs.promises.writeFile("./jsons/test.json", jsonFiles);
     /** Pour debug */
 
     jsonFiles.push(JSON.stringify(fields));
