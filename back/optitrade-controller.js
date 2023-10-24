@@ -3,10 +3,12 @@ import jstoxml from "jstoxml";
 import xml2js from "xml2js";
 
 let tabClientsNumber = [
+  { "VAN LEEUWEN OPTICIENS": 4061 },
+  { "VAN LEEUWEN OPTICIENS GRAVENZANDE": 4063 },
   { "REMCO OPTIEK": 1305 },
   { "THIJSSEN OPTIEK VOF": 6820 },
   { "DOESBURG OPTIEK": 1357 },
-  { "EYECARE BRILSERVICE BV": 1599 },
+  // { "EYECARE BRILSERVICE BV": 1599 },
   { "OVERMARS OPTICIENS": 6675 },
   { "VALENTIJN OPTICIENS B.V": 7568 },
   { OOGDALEM: 1419 },

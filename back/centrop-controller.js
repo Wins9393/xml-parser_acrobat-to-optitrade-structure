@@ -12,6 +12,7 @@ const idDoc = new Date().getTime();
 let tabClientsNumber = [
   { "BRIL 62 BAARN": 112100 },
   { "MAX VOOR OGEN": 151700 },
+  { "OPTIEK FREIBERGER": 163351 },
   { "TEMPEL OPTIEK": 178300 },
   { "VAN KOUWEN UW OPTICIEN": 143300 },
   { "VAN NES OPTIEK B.V": 175000 },
