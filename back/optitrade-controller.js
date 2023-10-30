@@ -15,7 +15,7 @@ let tabClientsNumber = [
   { "OOGMERK TUNDERMAN": 1073 },
   { "'T BRILLENHUYS": 6115 },
   { "VON OY": 6650 },
-  { "PETER KUIPER OPTIEK ": 7548 },
+  { "PETER KUIPER OPTIEK": 7548 },
 ];
 
 const { toXML } = jstoxml;
@@ -166,8 +166,15 @@ const formatJson = async (json) => {
       formatedJson[i]["rsm:CrossIndustryInvoice"][
         "rsm:SupplyChainTradeTransaction"
       ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-        "ram:ApplicableTradeTax"
-      ][0]["ram:BasisAmount"][0];
+        "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
+      ][0]["ram:LineTotalAmount"][0];
+
+    // invoiceAmountHT =
+    //   formatedJson[i]["rsm:CrossIndustryInvoice"][
+    //     "rsm:SupplyChainTradeTransaction"
+    //   ][0]["ram:ApplicableHeaderTradeSettlement"][0][
+    //     "ram:ApplicableTradeTax"
+    //   ][0]["ram:BasisAmount"][0];
 
     invoiceNumber =
       formatedJson[i]["rsm:CrossIndustryInvoice"]["rsm:ExchangedDocument"][0][
