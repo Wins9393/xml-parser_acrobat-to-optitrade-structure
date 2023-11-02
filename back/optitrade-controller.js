@@ -87,33 +87,59 @@ const formatJson = async (json) => {
           "ram:NetPriceProductTradePrice"
         ][0]["ram:ChargeAmount"][0];
 
-      tabInvoiceLines.push({
-        invoiceline: {
-          invoiceline_articlecode_org:
-            line?.["ram:SpecifiedTradeProduct"][0]["ram:SellerAssignedID"][0],
-          invoiceline_amount_ex_VAT: `${
-            invoiceNumber && invoiceNumber.slice(0, 2) === "AV"
-              ? `-${invoicelineAmount}`
-              : invoicelineAmount
-          }`,
-          // invoiceline_discount_percentage:
-          //   line?.["ram:SpecifiedLineTradeSettlement"][0][
-          //     "ram:SpecifiedTradeAllowanceCharge"
-          //   ][0]["ram:CalculationPercent"][0] || 0,
-          invoiceline_VAT: {
-            invoiceline_VAT_percentage: 0,
-            invoiceline_VAT_amount: 0,
+      let invoicelineQuantity =
+        line?.["ram:SpecifiedLineTradeDelivery"][0]["ram:BilledQuantity"][0];
+
+      if (invoicelineQuantity > 1) {
+        for (let i = 0; i < invoicelineQuantity; i++) {
+          tabInvoiceLines.push({
+            invoiceline: {
+              invoiceline_articlecode_org:
+                line?.["ram:SpecifiedTradeProduct"][0][
+                  "ram:SellerAssignedID"
+                ][0],
+              invoiceline_amount_ex_VAT: `${
+                invoiceNumber && invoiceNumber.slice(0, 2) === "AV"
+                  ? `-${invoicelineAmount}`
+                  : invoicelineAmount
+              }`,
+              invoiceline_VAT: {
+                invoiceline_VAT_percentage: 0,
+                invoiceline_VAT_amount: 0,
+              },
+              invoiceline_quantity: 1,
+            },
+          });
+        }
+      } else {
+        tabInvoiceLines.push({
+          invoiceline: {
+            invoiceline_articlecode_org:
+              line?.["ram:SpecifiedTradeProduct"][0]["ram:SellerAssignedID"][0],
+            invoiceline_amount_ex_VAT: `${
+              invoiceNumber && invoiceNumber.slice(0, 2) === "AV"
+                ? `-${invoicelineAmount}`
+                : invoicelineAmount
+            }`,
+            // invoiceline_discount_percentage:
+            //   line?.["ram:SpecifiedLineTradeSettlement"][0][
+            //     "ram:SpecifiedTradeAllowanceCharge"
+            //   ][0]["ram:CalculationPercent"][0] || 0,
+            invoiceline_VAT: {
+              invoiceline_VAT_percentage: 0,
+              invoiceline_VAT_amount: 0,
+            },
+            // invoiceline_quantity:
+            //   line?.["ram:SpecifiedLineTradeAgreement"][0][
+            //     "ram:NetPriceProductTradePrice"
+            //   ][0]["ram:BasisQuantity"][0],
+            invoiceline_quantity:
+              line?.["ram:SpecifiedLineTradeDelivery"][0][
+                "ram:BilledQuantity"
+              ][0],
           },
-          // invoiceline_quantity:
-          //   line?.["ram:SpecifiedLineTradeAgreement"][0][
-          //     "ram:NetPriceProductTradePrice"
-          //   ][0]["ram:BasisQuantity"][0],
-          invoiceline_quantity:
-            line?.["ram:SpecifiedLineTradeDelivery"][0][
-              "ram:BilledQuantity"
-            ][0],
-        },
-      });
+        });
+      }
     });
     tabInvoiceLines.push({ ...invoiceLineChargeAmount });
     return tabInvoiceLines;
@@ -162,19 +188,19 @@ const formatJson = async (json) => {
 
     debtorNumber = getClientNumber(debtorName);
 
-    invoiceAmountHT =
-      formatedJson[i]["rsm:CrossIndustryInvoice"][
-        "rsm:SupplyChainTradeTransaction"
-      ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-        "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
-      ][0]["ram:LineTotalAmount"][0];
-
     // invoiceAmountHT =
     //   formatedJson[i]["rsm:CrossIndustryInvoice"][
     //     "rsm:SupplyChainTradeTransaction"
     //   ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-    //     "ram:ApplicableTradeTax"
-    //   ][0]["ram:BasisAmount"][0];
+    //     "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
+    //   ][0]["ram:LineTotalAmount"][0];
+
+    invoiceAmountHT =
+      formatedJson[i]["rsm:CrossIndustryInvoice"][
+        "rsm:SupplyChainTradeTransaction"
+      ][0]["ram:ApplicableHeaderTradeSettlement"][0][
+        "ram:ApplicableTradeTax"
+      ][0]["ram:BasisAmount"][0];
 
     invoiceNumber =
       formatedJson[i]["rsm:CrossIndustryInvoice"]["rsm:ExchangedDocument"][0][
