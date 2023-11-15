@@ -379,7 +379,7 @@ const formatJson = async (json) => {
         "cbc:ProfileID": "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0",
       },
       {
-        "cbc:ID": idDoc,
+        "cbc:ID": new Date().getTime(),
       },
       {
         "cbc:IssueDate": convertDateFormat(dateNow),
