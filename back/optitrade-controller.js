@@ -16,7 +16,7 @@ let tabClientsNumber = [
   { "'T BRILLENHUYS": 6115 },
   { "VON OY": 6650 },
   { "PETER KUIPER OPTIEK": 7548 },
-  { "OLYMPUS BRILMODE": 1264 },
+  { OLYMPUS: 1264 },
 ];
 
 const { toXML } = jstoxml;
