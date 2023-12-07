@@ -253,11 +253,13 @@ const formatJson = async (json) => {
     ][0]["ram:TelephoneUniversalCommunication"][0]["ram:CompleteNumber"][0];
 
   const debtorEmail =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
+    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.[
       "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:BuyerTradeParty"][0][
-      "ram:DefinedTradeContact"
-    ][0]["ram:EmailURIUniversalCommunication"][0]["ram:URIID"][0];
+    ]?.[0]?.["ram:ApplicableHeaderTradeAgreement"]?.[0]?.[
+      "ram:BuyerTradeParty"
+    ]?.[0]?.["ram:DefinedTradeContact"]?.[0]?.[
+      "ram:EmailURIUniversalCommunication"
+    ]?.[0]?.["ram:URIID"]?.[0];
 
   /** Payement method */
   const payementMeansCode =
