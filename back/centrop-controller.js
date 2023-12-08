@@ -53,7 +53,22 @@ const getClientNumber = (clientName) => {
 const createInvoiceLine = (invoiceLines) => {
   let tabInvoiceLines = [];
 
-  invoiceLines.map((line, index) => {
+  invoiceLines.forEach((line, index) => {
+    const isCharge =
+      line?.["ram:SpecifiedLineTradeSettlement"]?.[0]?.[
+        "ram:SpecifiedTradeAllowanceCharge"
+      ]?.[0]?.["ram:ChargeIndicator"]?.[0]?.["udt:Indicator"]?.[0];
+
+    const discountReason =
+      line?.["ram:SpecifiedLineTradeSettlement"]?.[0]?.[
+        "ram:SpecifiedTradeAllowanceCharge"
+      ]?.[0]?.["ram:Reason"]?.[0];
+
+    const discountPercent =
+      line?.["ram:SpecifiedLineTradeSettlement"]?.[0]?.[
+        "ram:SpecifiedTradeAllowanceCharge"
+      ]?.[0]?.["ram:CalculationPercent"]?.[0];
+
     const itemQuantity =
       line?.["ram:SpecifiedLineTradeAgreement"][0][
         "ram:NetPriceProductTradePrice"
@@ -75,7 +90,9 @@ const createInvoiceLine = (invoiceLines) => {
     const itemReference =
       line?.["ram:SpecifiedTradeProduct"][0]["ram:SellerAssignedID"][0];
 
-    tabInvoiceLines.push({
+    const discountAmount = (itemBasePrice * discountPercent) / 100;
+
+    let invoiceLine = {
       "cac:InvoiceLine": [
         { "cbc:ID": index },
         {
@@ -123,7 +140,42 @@ const createInvoiceLine = (invoiceLines) => {
           ],
         },
       ],
-    });
+    };
+
+    if (isCharge === "false") {
+      invoiceLine["cac:InvoiceLine"].push({
+        "cac:AllowanceCharge": [
+          {
+            _name: "cbc:ChargeIndicator",
+            _content: isCharge,
+          },
+          {
+            _name: "cbc:AllowanceChargeReason",
+            _content: discountReason,
+          },
+          {
+            _name: "cbc:MultiplierFactorNumeric",
+            _content: discountPercent,
+          },
+          {
+            _name: "cbc:Amount",
+            _attrs: {
+              currencyID: "EUR",
+            },
+            _content: discountAmount,
+          },
+          {
+            _name: "cbc:BaseAmount",
+            _attrs: {
+              currencyID: "EUR",
+            },
+            _content: itemBasePrice,
+          },
+        ],
+      });
+    }
+
+    tabInvoiceLines.push(invoiceLine);
   });
   return tabInvoiceLines;
 };
@@ -665,7 +717,7 @@ const formatJson = async (json) => {
 const writeFormatXml = async (data) => {
   try {
     const jsonFormated = await formatJson(data);
-    console.log("JSON FORMATED: ", jsonFormated);
+    // console.log("JSON FORMATED: ", jsonFormated);
 
     const xmlFormated = toXML(jsonFormated.content, xmlConfig);
 
