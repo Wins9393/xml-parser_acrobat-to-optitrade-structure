@@ -30,9 +30,10 @@ let tabClientsNumber = [
 const convertDateFormat = (date) => {
   console.log("DATE: ", date);
   console.log(date.getFullYear(), date.getMonth() + 1, date.getDate());
-  const formatedDate = `${date.getFullYear()}-${String(
-    date.getMonth() + 1
-  ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+  const formatedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}-${String(date.getDate()).padStart(2, "0")}`;
   return formatedDate;
 };
 
@@ -44,9 +45,7 @@ const convertDateFormat = (date) => {
 // };
 
 const getClientNumber = (clientName) => {
-  let client = tabClientsNumber.find(
-    (client) => Object.keys(client)[0] === clientName
-  );
+  let client = tabClientsNumber.find((client) => Object.keys(client)[0] === clientName);
   return client ? client[clientName] : undefined;
 };
 
@@ -55,24 +54,24 @@ const createInvoiceLine = (invoiceLines) => {
 
   invoiceLines.forEach((line, index) => {
     const isCharge =
-      line?.["ram:SpecifiedLineTradeSettlement"]?.[0]?.[
-        "ram:SpecifiedTradeAllowanceCharge"
-      ]?.[0]?.["ram:ChargeIndicator"]?.[0]?.["udt:Indicator"]?.[0];
+      line?.["ram:SpecifiedLineTradeSettlement"]?.[0]?.["ram:SpecifiedTradeAllowanceCharge"]?.[0]?.[
+        "ram:ChargeIndicator"
+      ]?.[0]?.["udt:Indicator"]?.[0];
 
     const discountReason =
-      line?.["ram:SpecifiedLineTradeSettlement"]?.[0]?.[
-        "ram:SpecifiedTradeAllowanceCharge"
-      ]?.[0]?.["ram:Reason"]?.[0];
+      line?.["ram:SpecifiedLineTradeSettlement"]?.[0]?.["ram:SpecifiedTradeAllowanceCharge"]?.[0]?.[
+        "ram:Reason"
+      ]?.[0];
 
     const discountPercent =
-      line?.["ram:SpecifiedLineTradeSettlement"]?.[0]?.[
-        "ram:SpecifiedTradeAllowanceCharge"
-      ]?.[0]?.["ram:CalculationPercent"]?.[0];
+      line?.["ram:SpecifiedLineTradeSettlement"]?.[0]?.["ram:SpecifiedTradeAllowanceCharge"]?.[0]?.[
+        "ram:CalculationPercent"
+      ]?.[0];
 
     const itemQuantity =
-      line?.["ram:SpecifiedLineTradeAgreement"][0][
-        "ram:NetPriceProductTradePrice"
-      ][0]["ram:BasisQuantity"][0];
+      line?.["ram:SpecifiedLineTradeAgreement"][0]["ram:NetPriceProductTradePrice"][0][
+        "ram:BasisQuantity"
+      ][0];
 
     const lineTotalAmount =
       line?.["ram:SpecifiedLineTradeSettlement"][0][
@@ -80,15 +79,13 @@ const createInvoiceLine = (invoiceLines) => {
       ][0]["ram:LineTotalAmount"][0];
 
     const itemBasePrice =
-      line?.["ram:SpecifiedLineTradeAgreement"][0][
-        "ram:GrossPriceProductTradePrice"
-      ][0]["ram:ChargeAmount"][0];
+      line?.["ram:SpecifiedLineTradeAgreement"][0]["ram:GrossPriceProductTradePrice"][0][
+        "ram:ChargeAmount"
+      ][0];
 
-    const itemDescription =
-      line?.["ram:SpecifiedTradeProduct"][0]["ram:Name"][0];
+    const itemDescription = line?.["ram:SpecifiedTradeProduct"][0]["ram:Name"][0];
 
-    const itemReference =
-      line?.["ram:SpecifiedTradeProduct"][0]["ram:SellerAssignedID"][0];
+    const itemReference = line?.["ram:SpecifiedTradeProduct"][0]["ram:SellerAssignedID"][0];
 
     const discountAmount = (itemBasePrice * discountPercent) / 100;
 
@@ -191,9 +188,7 @@ const formatJson = async (json) => {
   console.log("FORMATED JSON 138: ", formatedJson);
 
   /** Ancien code */
-  const fileNumber = formatedJson[
-    formatedJson.length - 1
-  ]?.inputFileNumber?.padStart(5, "0");
+  const fileNumber = formatedJson[formatedJson.length - 1]?.inputFileNumber?.padStart(5, "0");
   const testProduction = formatedJson[formatedJson.length - 1].testProduction;
 
   const supplierNumber = 11859;
@@ -203,237 +198,186 @@ const formatJson = async (json) => {
 
   /** Nouveau code */
   const invoiceCurrencyCode =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:InvoiceCurrencyCode"
-    ][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:InvoiceCurrencyCode"][0];
+
+  // Numéro de document
+  const numeroDoc =
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:ExchangedDocument"][0]["ram:ID"][0];
 
   // Supplier infos
   const supplierName =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:SellerTradeParty"][0][
-      "ram:Name"
-    ][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:SellerTradeParty"][0]["ram:Name"][0];
 
   const supplierAddress =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:SellerTradeParty"][0][
-      "ram:PostalTradeAddress"
-    ][0]["ram:LineOne"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:SellerTradeParty"][0]["ram:PostalTradeAddress"][0]["ram:LineOne"][0];
 
   const supplierZipcode =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:SellerTradeParty"][0][
-      "ram:PostalTradeAddress"
-    ][0]["ram:PostcodeCode"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:SellerTradeParty"][0]["ram:PostalTradeAddress"][0]["ram:PostcodeCode"][0];
 
   const supplierCity =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:SellerTradeParty"][0][
-      "ram:PostalTradeAddress"
-    ][0]["ram:CityName"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:SellerTradeParty"][0]["ram:PostalTradeAddress"][0]["ram:CityName"][0];
 
   const supplierCountry =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:SellerTradeParty"][0][
-      "ram:PostalTradeAddress"
-    ][0]["ram:CountryID"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:SellerTradeParty"][0]["ram:PostalTradeAddress"][0]["ram:CountryID"][0];
 
   const supplierCompanyId =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:SellerTradeParty"][0][
-      "ram:SpecifiedTaxRegistration"
-    ][0]["ram:ID"][0]._;
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:SellerTradeParty"][0]["ram:SpecifiedTaxRegistration"][0]["ram:ID"][0]._;
 
   // Debtor infos
   const debtorName =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:BuyerTradeParty"][0][
-      "ram:Name"
-    ][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:BuyerTradeParty"][0]["ram:Name"][0];
 
   const debtorNumberCentrop = getClientNumber(debtorName);
 
   const debtorStreet =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:BuyerTradeParty"][0][
-      "ram:PostalTradeAddress"
-    ][0]["ram:LineOne"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:BuyerTradeParty"][0]["ram:PostalTradeAddress"][0]["ram:LineOne"][0];
 
   const debtorCity =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:BuyerTradeParty"][0][
-      "ram:PostalTradeAddress"
-    ][0]["ram:CityName"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:BuyerTradeParty"][0]["ram:PostalTradeAddress"][0]["ram:CityName"][0];
 
   const debtorPostalZone =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:BuyerTradeParty"][0][
-      "ram:PostalTradeAddress"
-    ][0]["ram:PostcodeCode"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:BuyerTradeParty"][0]["ram:PostalTradeAddress"][0]["ram:PostcodeCode"][0];
 
   const debtorCountryId =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:BuyerTradeParty"][0][
-      "ram:PostalTradeAddress"
-    ][0]["ram:CountryID"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:BuyerTradeParty"][0]["ram:PostalTradeAddress"][0]["ram:CountryID"][0];
 
   const debtorCompanyId =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:BuyerTradeParty"][0][
-      "ram:SpecifiedTaxRegistration"
-    ][0]["ram:ID"][0]._;
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:BuyerTradeParty"][0]["ram:SpecifiedTaxRegistration"][0]["ram:ID"][0]._;
 
   const debtorPhoneNumber =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeAgreement"][0]["ram:BuyerTradeParty"][0][
-      "ram:DefinedTradeContact"
-    ][0]["ram:TelephoneUniversalCommunication"][0]["ram:CompleteNumber"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeAgreement"
+    ][0]["ram:BuyerTradeParty"][0]["ram:DefinedTradeContact"][0][
+      "ram:TelephoneUniversalCommunication"
+    ][0]["ram:CompleteNumber"][0];
 
   const debtorEmail =
-    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.[
-      "rsm:SupplyChainTradeTransaction"
-    ]?.[0]?.["ram:ApplicableHeaderTradeAgreement"]?.[0]?.[
-      "ram:BuyerTradeParty"
-    ]?.[0]?.["ram:DefinedTradeContact"]?.[0]?.[
+    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.["rsm:SupplyChainTradeTransaction"]?.[0]?.[
+      "ram:ApplicableHeaderTradeAgreement"
+    ]?.[0]?.["ram:BuyerTradeParty"]?.[0]?.["ram:DefinedTradeContact"]?.[0]?.[
       "ram:EmailURIUniversalCommunication"
     ]?.[0]?.["ram:URIID"]?.[0];
 
   /** Payement method */
   const payementMeansCode =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:SpecifiedTradeSettlementPaymentMeans"
-    ][0]["ram:TypeCode"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:SpecifiedTradeSettlementPaymentMeans"][0]["ram:TypeCode"][0];
 
   const payementTerms =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:SpecifiedTradeSettlementPaymentMeans"
-    ][0]["ram:Information"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:SpecifiedTradeSettlementPaymentMeans"][0]["ram:Information"][0];
 
   const chargeReasonTransport =
-    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.[
-      "rsm:SupplyChainTradeTransaction"
-    ]?.[0]?.["ram:ApplicableHeaderTradeSettlement"]?.[0]?.[
-      "ram:SpecifiedTradeAllowanceCharge"
-    ]?.[0]?.["ram:Reason"]?.[0] || 0;
+    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.["rsm:SupplyChainTradeTransaction"]?.[0]?.[
+      "ram:ApplicableHeaderTradeSettlement"
+    ]?.[0]?.["ram:SpecifiedTradeAllowanceCharge"]?.[0]?.["ram:Reason"]?.[0] || 0;
 
   const chargeAmount =
-    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.[
-      "rsm:SupplyChainTradeTransaction"
-    ]?.[0]?.["ram:ApplicableHeaderTradeSettlement"]?.[0]?.[
-      "ram:SpecifiedTradeAllowanceCharge"
-    ]?.[1]?.["ram:ActualAmount"]?.[0] || 0;
+    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.["rsm:SupplyChainTradeTransaction"]?.[0]?.[
+      "ram:ApplicableHeaderTradeSettlement"
+    ]?.[0]?.["ram:SpecifiedTradeAllowanceCharge"]?.[1]?.["ram:ActualAmount"]?.[0] || 0;
 
   const chargeAmountTransport =
-    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.[
-      "rsm:SupplyChainTradeTransaction"
-    ]?.[0]?.["ram:ApplicableHeaderTradeSettlement"]?.[0]?.[
-      "ram:SpecifiedTradeAllowanceCharge"
-    ]?.[0]?.["ram:ActualAmount"]?.[0] || 0;
+    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.["rsm:SupplyChainTradeTransaction"]?.[0]?.[
+      "ram:ApplicableHeaderTradeSettlement"
+    ]?.[0]?.["ram:SpecifiedTradeAllowanceCharge"]?.[0]?.["ram:ActualAmount"]?.[0] || 0;
 
   const chargePercent =
-    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.[
-      "rsm:SupplyChainTradeTransaction"
-    ]?.[0]?.["ram:ApplicableHeaderTradeSettlement"]?.[0]?.[
-      "ram:SpecifiedTradeAllowanceCharge"
-    ]?.[1]?.["ram:CalculationPercent"]?.[0] || 0;
+    formatedJson[0]?.["rsm:CrossIndustryInvoice"]?.["rsm:SupplyChainTradeTransaction"]?.[0]?.[
+      "ram:ApplicableHeaderTradeSettlement"
+    ]?.[0]?.["ram:SpecifiedTradeAllowanceCharge"]?.[1]?.["ram:CalculationPercent"]?.[0] || 0;
 
   const lineTotalAmount =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
-    ][0]["ram:LineTotalAmount"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:SpecifiedTradeSettlementHeaderMonetarySummation"][0]["ram:LineTotalAmount"][0];
 
   const taxBasisTotalAmount =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
-    ][0]["ram:TaxBasisTotalAmount"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:SpecifiedTradeSettlementHeaderMonetarySummation"][0]["ram:TaxBasisTotalAmount"][0];
 
   const allowanceTotalAmount =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
-    ][0]["ram:AllowanceTotalAmount"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:SpecifiedTradeSettlementHeaderMonetarySummation"][0]["ram:AllowanceTotalAmount"][0];
 
   const chargeTotalAmount =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
-    ][0]["ram:ChargeTotalAmount"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:SpecifiedTradeSettlementHeaderMonetarySummation"][0]["ram:ChargeTotalAmount"][0];
 
   const grandTotalAmount =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
-    ][0]["ram:GrandTotalAmount"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:SpecifiedTradeSettlementHeaderMonetarySummation"][0]["ram:GrandTotalAmount"][0];
 
   const prepaidAmount =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
-    ][0]["ram:TotalPrepaidAmount"][0] || 0;
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:SpecifiedTradeSettlementHeaderMonetarySummation"][0]["ram:TotalPrepaidAmount"][0] ||
+    0;
 
   // let payableAmount = grandTotalAmount - prepaidAmount;
 
   const payableAmount =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:ApplicableHeaderTradeSettlement"][0][
-      "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
-    ][0]["ram:DuePayableAmount"][0];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:ApplicableHeaderTradeSettlement"
+    ][0]["ram:SpecifiedTradeSettlementHeaderMonetarySummation"][0]["ram:DuePayableAmount"][0];
 
   const invoiceLines =
-    formatedJson[0]["rsm:CrossIndustryInvoice"][
-      "rsm:SupplyChainTradeTransaction"
-    ][0]["ram:IncludedSupplyChainTradeLineItem"];
+    formatedJson[0]["rsm:CrossIndustryInvoice"]["rsm:SupplyChainTradeTransaction"][0][
+      "ram:IncludedSupplyChainTradeLineItem"
+    ];
 
   const content = {
     _name: "Invoice",
     _attrs: {
       xmlns: "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
-      "xmlns:cac":
-        "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
-      "xmlns:cbc":
-        "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+      "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+      "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
       "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
       "xsi:schemaLocation":
         "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 https://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd",
     },
     _content: [
       {
-        "cbc:CustomizationID":
-          "urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0",
+        "cbc:CustomizationID": "urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0",
       },
       {
         "cbc:ProfileID": "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0",
       },
       {
-        "cbc:ID": new Date().getTime(),
+        // "cbc:ID": new Date().getTime(),
+        "cbc:ID": numeroDoc,
       },
       {
         "cbc:IssueDate": convertDateFormat(dateNow),
@@ -752,9 +696,7 @@ const processCentropData = async (req, res) => {
         };
 
         const fileContent = await part.toBuffer();
-        const parsedData = await parser.parseStringPromise(
-          fileContent.toString()
-        );
+        const parsedData = await parser.parseStringPromise(fileContent.toString());
 
         const stringifiedData = JSON.stringify(parsedData);
 
