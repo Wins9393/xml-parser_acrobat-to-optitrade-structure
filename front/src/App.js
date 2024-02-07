@@ -138,8 +138,8 @@ function App() {
     }
   };
 
-  const handleTestProduction = (e) => {
-    let userSelectTestProduction = e;
+  const handleTestProduction = (value) => {
+    let userSelectTestProduction = value;
     setTestProduction(userSelectTestProduction);
   };
 
